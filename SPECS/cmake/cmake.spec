@@ -2,7 +2,7 @@
 Summary:        Cmake
 Name:           cmake
 Version:        3.21.4
-Release:        4%{?dist}
+Release:        5%{?dist}
 License:        BSD AND LGPLv2+
 Vendor:         Microsoft Corporation
 Distribution:   Mariner
@@ -81,6 +81,9 @@ bin/ctest --force-new-ctest-process --rerun-failed --output-on-failure
 %{_prefix}/doc/%{name}-*/*
 
 %changelog
+* Wed May 04 2023 Sam Meluch <sammeluch@microsoft.com> - 3.21.4-5
+- Add source directory for when not building in source
+
 * Mon Apr 03 2023 Bala <balakumaran.kannan@microsoft.com> - 3.21.4.4
 - Add build directory to %cmake macro to align with %cmake_build
 
