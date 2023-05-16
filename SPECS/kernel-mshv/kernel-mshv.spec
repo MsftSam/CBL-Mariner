@@ -19,7 +19,7 @@ Distribution:   Mariner
 Source0:        %{_mariner_sources_url}/%{name}-%{version}.tar.gz
 Source1:        config
 Source2:        cbl-mariner-ca-20211013.pem
-Patch0:         0001-Support-new-HV-loader-patch-as-of-20230412.patch
+Patch0:         0001-Support-new-HV-loader-patch-as-of-20230516.patch
 ExclusiveArch:  x86_64
 BuildRequires:  audit-devel
 BuildRequires:  bash
@@ -131,8 +131,8 @@ ln -s vmlinux-%{uname_r} %{buildroot}%{_libdir}/debug/lib/modules/%{uname_r}/vml
 cat > %{buildroot}/boot/linux-%{uname_r}.cfg << "EOF"
 # GRUB Environment Block
 mariner_cmdline=init=/lib/systemd/systemd ro loglevel=3 no-vmw-sta crashkernel=128M
-mariner_linux=vmlinuz-%{uname_r}
-mariner_initrd=initrd.img-%{uname_r}
+mariner_linux_mshv=vmlinuz-%{uname_r}
+mariner_initrd_mshv=initrd.img-%{uname_r}
 EOF
 chmod 600 %{buildroot}/boot/linux-%{uname_r}.cfg
 
@@ -183,19 +183,19 @@ rm -rf /boot/efi/initrd.img-%{uname_r}
 echo "initrd of kernel %{uname_r} removed" >&2
 
 %postun
-if [ ! -e /boot/mariner.cfg ]
+if [ ! -e /boot/mariner-mshv.cfg ]
 then
      ls /boot/linux-*.cfg 1> /dev/null 2>&1
      if [ $? -eq 0 ]
      then
           list=`ls -tu /boot/linux-*.cfg | head -n1`
-          test -n "$list" && ln -sf "$list" /boot/mariner.cfg
+          test -n "$list" && ln -sf "$list" /boot/mariner-mshv.cfg
      fi
 fi
 
 %post
 /sbin/depmod -a %{uname_r}
-ln -sf linux-%{uname_r}.cfg /boot/mariner.cfg
+ln -sf linux-%{uname_r}.cfg /boot/mariner-mshv.cfg
 
 %files
 %defattr(-,root,root)
