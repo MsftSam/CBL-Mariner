@@ -27,10 +27,11 @@ install_one_toolchain_rpm () {
 
     echo "Adding RPM to worker chroot: $1." | tee -a "$chroot_log"
 
-    full_rpm_path=$(find "$rpm_path" -name "$1" -type f 2>>"$chroot_log")
+    full_rpm_path=$(find "$rpm_path" -D all -name "$1" -type f 2>>"$chroot_log")
     if [ ! $? -eq 0 ] || [ -z "$full_rpm_path" ]
     then
         echo "Failed to locate package $1 in ($rpm_path), aborting. $error_msg_tail" | tee -a "$chroot_log"
+        echo "Full path: ($full_rpm_path)" | tee -a "$chroot_log"
         exit 1
     fi
 
