@@ -114,6 +114,7 @@ func buildSystemConfig(systemConfig configuration.SystemConfig, disks []configur
 		defaultTempDiskName = "disk.raw"
 		existingChrootDir   = false
 		leaveChrootOnDisk   = false
+		marinerReleasePackage = "mariner-release"
 	)
 
 	var (
@@ -137,6 +138,8 @@ func buildSystemConfig(systemConfig configuration.SystemConfig, disks []configur
 		logger.Log.Error("Failed to import packages from package lists in config file")
 		return
 	}
+
+	packagesToInstall = append([]string{marinerReleasePackage}, packagesToInstall...)
 
 	isRootFS = len(systemConfig.PartitionSettings) == 0
 	if isRootFS {
