@@ -81,7 +81,7 @@ bin/ctest --force-new-ctest-process --rerun-failed --output-on-failure
 %{_prefix}/doc/%{name}-*/*
 
 %changelog
-* Wed May 04 2023 Sam Meluch <sammeluch@microsoft.com> - 3.21.4-5
+* Wed May 03 2023 Sam Meluch <sammeluch@microsoft.com> - 3.21.4-5
 - Add source directory for when not building in source
 
 * Mon Apr 03 2023 Bala <balakumaran.kannan@microsoft.com> - 3.21.4.4
