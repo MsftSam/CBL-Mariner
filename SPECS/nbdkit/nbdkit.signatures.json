@@ -1,5 +1,7 @@
 {
  "Signatures": {
-  "nbdkit-1.20.7.tar.gz": "999242d56787f69b79eddcd64e5cb2c3071d4bd8ed98dc7da711a09fca8095ec"
+  "nbdkit-1.32.6.tar.gz": "6ad85fc93a1b1a2f95ee60f1b10e5f4c87b18b78c045313f4fd469e9ab8f85be",
+  "nbdkit-find-provides": "59950956d9cddb9bec33bf3c5d5385520e8d984b0a9e33e05fb51a1b58f49fdb",
+  "nbdkit.attr": "ba1166128417a6e6e197ebfd64943712af159e8e52a95b3267061f87f1fc16a8"
  }
 }
