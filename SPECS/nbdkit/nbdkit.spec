@@ -78,7 +78,7 @@ BuildRequires:  zlib-devel
 BuildRequires:  libzstd-devel
 BuildRequires:  libcurl-devel
 BuildRequires:  libnbd-devel >= 1.3.11
-BuildRequires:  libssh-devel
+BuildRequires:  libssh2-devel
 BuildRequires:  e2fsprogs, e2fsprogs-devel
 BuildRequires:  xorriso
 BuildRequires:  rb_libtorrent-devel
