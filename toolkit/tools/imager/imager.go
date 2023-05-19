@@ -104,16 +104,16 @@ func buildSystemConfig(systemConfig configuration.SystemConfig, disks []configur
 	logger.Log.Infof("Building system configuration (%s)", systemConfig.Name)
 
 	const (
-		assetsMountPoint    = "/installer"
-		localRepoMountPoint = "/mnt/cdrom/RPMS"
-		repoFileMountPoint  = "/etc/yum.repos.d"
-		setupRoot           = "/setuproot"
-		installRoot         = "/installroot"
-		rootID              = "rootfs"
-		defaultDiskIndex    = 0
-		defaultTempDiskName = "disk.raw"
-		existingChrootDir   = false
-		leaveChrootOnDisk   = false
+		assetsMountPoint      = "/installer"
+		localRepoMountPoint   = "/mnt/cdrom/RPMS"
+		repoFileMountPoint    = "/etc/yum.repos.d"
+		setupRoot             = "/setuproot"
+		installRoot           = "/installroot"
+		rootID                = "rootfs"
+		defaultDiskIndex      = 0
+		defaultTempDiskName   = "disk.raw"
+		existingChrootDir     = false
+		leaveChrootOnDisk     = false
 		marinerReleasePackage = "mariner-release"
 	)
 
